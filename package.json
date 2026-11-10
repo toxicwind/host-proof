@@ -1,0 +1,48 @@
+{
+  "name": "@toxicwind/estate-proof-bundle",
+  "version": "0.1.0",
+  "description": "A universal read-only host proof bundle for estate audits and machine-identity checks",
+  "license": "MIT",
+  "author": "toxicwind",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/toxicwind/estate"
+  },
+  "scripts": {
+    "dev": "bun --hot run proof-bundle.bun.js",
+    "test": "bun test",
+    "typecheck": "tsgo --noEmit -p tsconfig.json",
+    "lint": "biome lint .",
+    "fmt": "biome format . --write",
+    "build": "bun build proof-bundle.bun.js --target bun --outfile dist/proof-bundle.min.js",
+    "audit": "./host-audit.sh",
+    "run": "./run.sh"
+  },
+  "bin": {
+    "host-proof": "./proof-bundle.bun.js"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@types/bun": "latest",
+    "bun-types": "latest",
+    "typescript": "^5.6.3"
+  },
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./types/index.d.ts",
+      "default": "./proof-bundle.bun.js"
+    }
+  },
+  "files": [
+    "proof-bundle.bun.js",
+    "host-audit.sh",
+    "run.sh",
+    "README.md",
+    "CHANGELOG.md"
+  ],
+  "engines": {
+    "bun": ">=1.0.0"
+  },
+  "private": true
+}
